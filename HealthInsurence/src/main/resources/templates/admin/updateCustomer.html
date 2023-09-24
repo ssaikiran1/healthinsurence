@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Customer</title>
+    <style media="screen">
+        input[type=text], select, input[type=number], input[type=password], textarea {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        label#sidebar_btn {
+            z-index: 1;
+            color: #fff;
+            position: fixed;
+            cursor: pointer;
+            left: 300px;
+            padding-left: 60px;
+            margin-top: 15px;
+            font-size: 20px;
+            transition: 0.5s;
+            transition-property: color;
+        }
+
+        .left_area {
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="insurance/adminbase :: content">
+    <br/><br/>
+    <h3 style="text-align:center;">UPDATE CUSTOMER</h3>
+    <div>
+        <form th:action="@{/update-customer}" method="post" autocomplete="off" enctype="multipart/form-data"
+              style="margin-left:200px;margin-right:200px;">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <label for="first_name">First Name</label>
+            <input th:field="*{userForm.first_name}" class="form-control" placeholder="First Name"/>
+            <label for="last_name">Last Name</label>
+            <input th:field="*{userForm.last_name}" class="form-control" placeholder="Last Name"/>
+            <label for="mobile">Mobile</label>
+            <input th:field="*{customerForm.mobile}" class="form-control" placeholder="Mobile"/>
+            <label for="address">Address</label>
+            <input th:field="*{customerForm.address}" class="form-control" placeholder="Address"/>
+            <label for="username">Username</label>
+            <input th:field="*{userForm.username}" class="form-control" placeholder="Username"/>
+            <label for="password">Password</label>
+            <input th:field="*{userForm.password}" class="form-control" placeholder="Password"/><br/><br/>
+            <label for="profile_pic">Profile Picture</label>
+            <input th:field="*{customerForm.profile_pic}" class="form-control" placeholder="Profile Picture"/><br/><br/>
+            <input type="submit" value="Update"/>
+        </form>
+    </div>
+    <br/><br/><br/><br/><br/><br/><br/><br/>
+</div>
+</body>
+</html>

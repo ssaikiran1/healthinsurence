@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <style media="screen">
+        a:link {
+            text-decoration: none;
+        }
+
+        h6 {
+            text-align: center;
+        }
+
+        .row {
+            margin: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h6 class="panel-title">Policies</h6>
+            </div>
+            <table class="table table-hover" id="dev-table">
+                <thead>
+                    <tr>
+                        <th>Serial No.</th>
+                        <th>Policy Name</th>
+                        <th>Category</th>
+                        <th>Sum Assurance</th>
+                        <th>Premium</th>
+                        <th>Tenure</th>
+                        <th>Creation Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Replace this section with Thymeleaf iteration -->
+                    <tr th:each="policy : ${policies}">
+                        <td th:text="${policy.id}"></td>
+                        <td th:text="${policy.policyName}"></td>
+                        <td th:text="${policy.category}"></td>
+                        <td th:text="${policy.sumAssurance}"></td>
+                        <td th:text="${policy.premium}"></td>
+                        <td th:text="${policy.tenure}"></td>
+                        <td th:text="${policy.creationDate}"></td>
+                    </tr>
+                    <!-- End of Thymeleaf iteration -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
